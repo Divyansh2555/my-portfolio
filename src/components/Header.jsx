@@ -1,23 +1,51 @@
-import React from "react";
-import "../styles/header.css";
-import { Link } from "react-router-dom";
-const Header = () => {
-    return (
-        <header className="header">
-            <div className="logo">My Portfolio</div>
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "../styles/Header.css";
 
-            <nav>
-                <ul className="nav-links">
-                    <li><a href="home">Home</a></li>
+function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#profile">Profile</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </nav>
-        </header>
-    );
-};
+  return (
+    <header className="header">
+      {/* Logo */}
+      <div className="logo">
+        <h2>
+          Divyansh<span className="heart">❤️</span>
+        </h2>
+      </div>
+
+      {/* Hamburger Menu */}
+      <div
+        className="menu-icon"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </div>
+
+      {/* Navigation */}
+      <nav className={menuOpen ? "nav-links active" : "nav-links"}>
+        <NavLink to="/" onClick={() => setMenuOpen(false)}>
+          Home
+        </NavLink>
+
+        <NavLink to="/skill" onClick={() => setMenuOpen(false)}>
+          Skills
+        </NavLink>
+
+        <NavLink to="/profile" onClick={() => setMenuOpen(false)}>
+          Profile
+        </NavLink>
+
+        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
+          Contact
+        </NavLink>
+
+        <NavLink to="/about" onClick={() => setMenuOpen(false)}>
+          About
+        </NavLink>
+      </nav>
+    </header>
+  );
+}
 
 export default Header;

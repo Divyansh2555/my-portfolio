@@ -1,0 +1,98 @@
+
+.footer {
+    background: #1F2937;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h2,
+.footer-section h3 {
+    margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section a {
+    display: block;
+    margin: 8px 0;
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.footer-section a:hover {
+    color: #38bdf8;
+}
+
+.social-section {
+    margin-top: 30px;
+    border-top: 1px solid #374151;
+    padding-top: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    font-size: 26px;
+    text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width:768px) {
+
+    .footer {
+        padding: 25px 10px;
+    }
+
+    .footer-top {
+        display: flex;
+        flex-direction: row;   /* Row hi rahega */
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .footer-section {
+        flex: 1;
+    }
+
+    .footer-section h2 {
+        font-size: 16px;
+    }
+
+    .footer-section h3 {
+        font-size: 14px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 11px;
+    }
+
+    .social-section {
+        text-align: left;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .social-icons a {
+        font-size: 20px;
+    }
+}

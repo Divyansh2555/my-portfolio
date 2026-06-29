@@ -1,87 +1,242 @@
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ================= GLOBAL RESET ================= */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.columns-1 {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-.container1 {
+/* ================= MAIN WRAPPER ================= */
 
-
-    min-height: 200px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    background: aqua;
+.home-main {
+  width: 100%;
 }
 
-.row1 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
+/* ================= HERO SECTION ================= */
+
+.hero {
+  
+  width: 100%;
+  min-height: 800px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 50px;
+
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
 }
 
-.box1, .box2, .box3, .box4 {
-    margin: 10px;
-    height: 180px;
-    width: 100px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.35);
+  z-index: 0;
 }
-.box1{
-    background: rebeccapurple;
-}
-.box2 {
-    background: salmon;
-}
+
+/* content above overlay */
+.box2,
 .box3 {
-    background: #43dc88;
-}
-.box4 {
-    background: fuchsia;
+  position: relative;
+  z-index: 1;
 }
 
-/* container 2 & 3 */
-.container2 {
-    width: 100%;
-    min-height: 200px;
-    display: flex;
-    background: rebeccapurple;
+/* ================= LEFT BOX ================= */
+
+.box2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
 }
 
-.container3 {
-    width: 100%;
-    min-height: 200px;
-    display: flex;
-    background: darkcyan;
+.hello {
+  font-size: 20px;
+  color: #333;
 }
 
-/* ✅ RESPONSIVE */
-@media (max-width: 200px) {
+.name {
+  font-size: 42px;
+  font-weight: bold;
+  color: #000;
+}
 
-    .container1,
-    .container2,
-    .container3 {
-        flex-direction: column;
-    }
+.name span {
+  color: #1e90ff;
+}
 
-    .row1 {
-        flex-direction: column;
-    }
+/* typing */
+.typing {
+  font-size: 18px;
+  color: #1e90ff;
+  min-height: 25px;
+}
 
-    .box1, .box2, .box3, .box4 {
-        width: 95%;
-        height: 120px;
-        margin: 5px auto; /* center look better */
-    }
+/* description */
+.desc p {
+  font-size: 16px;
+  margin: 4px 0;
+  color: #222;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  font-weight: bold;
+
+  transition: 0.3s ease;
+}
+
+/* hover effect */
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* GitHub */
+.github {
+  background: #1e90ff;
+  color: white;
+}
+
+.github img {
+  height: 22px;
+}
+
+/* CV */
+.cv {
+  border: 2px solid #1e90ff;
+  color: #1e90ff;
+  background: transparent;
+}
+
+/* ================= RIGHT BOX ================= */
+
+.box3 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* social icons */
+.social-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* circle buttons */
+.circle {
+  height: 50px;
+  width: 50px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+/* hover */
+.circle:hover {
+  transform: scale(1.1);
+}
+
+/* EMAIL */
+.email {
+  background: #1e90ff;
+  color: white;
+  border: none;
+}
+
+/* OUTLINE */
+.facebook,
+.chat {
+  border: 2px solid #1e90ff;
+  color: #1e90ff;
+  background: transparent;
+}
+
+/* LAPTOP */
+.laptop {
+  background: #1e90ff;
+  color: white;
+  border: none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 30px;
+    min-height: auto;
+    text-align: center;
+  }
+
+  .box2,
+  .box3 {
+    align-items: center;
+  }
+
+  .box3 {
+    margin-top: 20px;
+  }
+
+  .name {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .name {
+    font-size: 28px;
+  }
+
+  .hello {
+    font-size: 16px;
+  }
+
+  .typing {
+    font-size: 16px;
+  }
+
+  .btn-group {
+    justify-content: center;
+  }
 }

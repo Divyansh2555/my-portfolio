@@ -1,48 +1,89 @@
 import Header from "../components/Header";
 import "../styles/Home.css";
+import bg from "../assets/bg.png";
+import githubIcon from "../assets/github.png";
+import { useEffect, useState } from "react";
 
 function Home() {
-    return (
-        <>
-            <Header />
+  const [text, setText] = useState("");
 
-            <div className="body">
-                <div className="columns-1">
+  useEffect(() => {
+    const fullText = "I'm a Full Stack Developer |";
+    let i = 0;
 
-                    <div className="container1">
-                        <div className="row1">
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, i));
+      i++;
 
-                            <div className="box1">
-                                <p>H</p>
-                            </div>
+      if (i > fullText.length) {
+        i = 0;
+      }
+    }, 120);
 
-                            <div className="box2">
-                                <p>H</p>
-                            </div>
+    return () => clearInterval(interval);
+  }, []);
 
-                            <div className="box3">
-                                <p>H</p>
-                            </div>
+  return (
+    <>
+      <Header />
 
-                            <div className="box4">
-                                <p>H</p>
-                            </div>
+      <main className="home-main">
+        <section
+          className="hero"
+          style={{ backgroundImage: `url(${bg})` }}
+        >
+          {/* LEFT SIDE */}
+          <div className="box2">
+            <p className="hello">Hi, I'm</p>
 
-                        </div>
-                    </div>
+            <h1 className="name">
+              Divyansh <span>Singh</span>
+            </h1>
 
-                    <div className="container2">
-                        <p>he</p>
-                    </div>
+            <div className="typing">{text}</div>
 
-                    <div className="container3">
-                        <p>he</p>
-                    </div>
-
-                </div>
+            <div className="desc">
+              <p>Building scalable web applications.</p>
+              <p>Creating clean and user-friendly experiences.</p>
+              <p>Turning ideas into reality.</p>
+              <p>Always learning and growing.</p>
             </div>
-        </>
-    );
+
+            <div className="btn-group">
+              <a
+                href="https://github.com/divyansh2555"
+                target="_blank"
+                rel="noreferrer"
+                className="btn github"
+              >
+                <img src={githubIcon} alt="github" />
+                GitHub
+              </a>
+
+              <a
+                href="https://drive.google.com/uc?export=download&id=1J-P0ewU9HdB0hYXiIZ9-kiycxcnKQt08"
+                target="_blank"
+                rel="noreferrer"
+                className="btn cv"
+              >
+                ⬇ Download CV
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="box3">
+            <div className="social-box">
+              <button className="circle email">📧</button>
+              <button className="circle facebook">📘</button>
+              <button className="circle chat">💬</button>
+              <button className="circle laptop">💻</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  );
 }
 
 export default Home;
