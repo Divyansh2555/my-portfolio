@@ -1,4 +1,4 @@
-/* ================= GLOBAL RESET ================= */
+/* ================= RESET ================= */
 
 * {
   margin: 0;
@@ -6,91 +6,83 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 
-/* ================= MAIN WRAPPER ================= */
+body {
+  background: #fff;
+}
 
 .home-main {
   width: 100%;
 }
 
-/* ================= HERO SECTION ================= */
+/* ================= HERO ================= */
 
 .hero {
-  
   width: 100%;
-  min-height: 800px;
+  min-height: 100vh;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
-  padding: 50px;
+  padding: 80px;
 
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 
   position: relative;
 }
 
-/* overlay */
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.35);
-  z-index: 0;
+  display: none;
 }
 
-/* content above overlay */
-.box2,
-.box3 {
-  position: relative;
-  z-index: 1;
-}
-
-/* ================= LEFT BOX ================= */
+/* ================= CONTENT ================= */
 
 .box2 {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
 }
 
+/* ================= TEXT ================= */
+
 .hello {
-  font-size: 20px;
-  color: #333;
+  font-size: 22px;
+  color: #222;
 }
 
 .name {
-  font-size: 42px;
+  font-size: 58px;
   font-weight: bold;
-  color: #000;
+  margin: 10px 0;
+  color: #111;
 }
 
 .name span {
   color: #1e90ff;
 }
 
-/* typing */
 .typing {
-  font-size: 18px;
+  font-size: 24px;
   color: #1e90ff;
-  min-height: 25px;
+  font-weight: bold;
+  min-height: 35px;
+  margin-bottom: 20px;
 }
 
-/* description */
 .desc p {
-  font-size: 16px;
-  margin: 4px 0;
-  color: #222;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 8px;
 }
 
 /* ================= BUTTONS ================= */
@@ -98,145 +90,253 @@ html, body {
 .btn-group {
   display: flex;
   gap: 15px;
-  margin-top: 15px;
+  margin-top: 30px;
   flex-wrap: wrap;
 }
 
 .btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
 
-  padding: 10px 14px;
-  border-radius: 12px;
+  padding: 12px 22px;
 
   text-decoration: none;
+  border-radius: 10px;
   font-weight: bold;
 
   transition: 0.3s ease;
 }
 
-/* hover effect */
 .btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  transform: translateY(-3px);
 }
 
-/* GitHub */
 .github {
   background: #1e90ff;
-  color: white;
+  color: #fff;
 }
 
 .github img {
+  width: 22px;
   height: 22px;
 }
 
-/* CV */
+/* ===== DOWNLOAD CV BUTTON ===== */
+
 .cv {
   border: 2px solid #1e90ff;
   color: #1e90ff;
+  background: transparent; /* White background removed */
+}
+
+.cv:hover {
   background: transparent;
+  color: #1e90ff;
 }
 
-/* ================= RIGHT BOX ================= */
+/* ================= SOCIAL ICONS ================= */
 
-.box3 {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* social icons */
 .social-box {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
-/* circle buttons */
 .circle {
-  height: 50px;
-  width: 50px;
-
-  border-radius: 50%;
+  width: 55px;
+  height: 55px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-size: 20px;
-  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #1e90ff;
 
-  transition: 0.3s ease;
+  background: white;
+  text-decoration: none;
+
+  transition: all .3s ease;
 }
 
-/* hover */
 .circle:hover {
+  background: #1e90ff;
   transform: scale(1.1);
 }
 
-/* EMAIL */
-.email {
-  background: #1e90ff;
-  color: white;
-  border: none;
+.circle img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
-/* OUTLINE */
-.facebook,
-.chat {
-  border: 2px solid #1e90ff;
-  color: #1e90ff;
-  background: transparent;
+.circle:hover img {
+  filter: brightness(0) invert(1);
 }
 
-/* LAPTOP */
-.laptop {
-  background: #1e90ff;
-  color: white;
-  border: none;
+.Box4{
+  height: 150px;
+  width: 100%;
+  background: #61a7b4;
+  border-radius: 12px;
+
 }
 
-/* ================= RESPONSIVE ================= */
+.column4{
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
 
-@media (max-width: 900px) {
+.row4{
+  display: flex;
+  flex-direction: row;
+  gap: 500px;
+}
+
+.row5{
+   display: flex;
+   flex-direction: row;
+   gap: 20px;
+
+}
+
+.cbox1{
+  height: 90px;
+  width: 70px;
+  background: red;
+}
+
+
+
+
+
+
+/* ================= TABLET ================= */
+
+@media (max-width:992px) {
+
   .hero {
-    flex-direction: column;
-    padding: 30px;
-    min-height: auto;
-    text-align: center;
-  }
-
-  .box2,
-  .box3 {
-    align-items: center;
-  }
-
-  .box3 {
-    margin-top: 20px;
+    padding: 60px 40px;
   }
 
   .name {
-    font-size: 34px;
+    font-size: 48px;
   }
+
+  .typing {
+    font-size: 20px;
+  }
+
+  .desc p {
+    font-size: 17px;
+  }
+
 }
 
-@media (max-width: 600px) {
-  .name {
-    font-size: 28px;
+/* ================= MOBILE ================= */
+
+@media (max-width:768px) {
+
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .box2 {
+    max-width: 100%;
   }
 
   .hello {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  .name {
+    font-size: 36px;
+  }
+
+  .typing {
+    font-size: 18px;
+  }
+
+  .desc p {
+    font-size: 15px;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .github img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .social-box {
+    gap: 12px;
+  }
+
+  .circle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .circle img {
+    width: 22px;
+    height: 22px;
+  }
+
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width:480px) {
+
+  .hero {
+    padding: 25px 15px;
+  }
+
+  .name {
+    font-size: 30px;
   }
 
   .typing {
     font-size: 16px;
   }
 
-  .btn-group {
-    justify-content: center;
+  .desc p {
+    font-size: 14px;
   }
+
+  .btn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .social-box {
+    gap: 10px;
+  }
+
+  .circle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .circle img {
+    width: 20px;
+    height: 20px;
+  }
+
 }
