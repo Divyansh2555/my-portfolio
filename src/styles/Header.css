@@ -1,83 +1,129 @@
-/* Header */
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HEADER */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgb(67, 216, 87);
-  padding: 12px 30px;
-  box-sizing: border-box;
+  z-index: 1000;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  z-index: 1000;
+  padding: 14px 30px;
+
+  /* 🔥 PREMIUM GRADIENT GLASS */
+  background: linear-gradient(
+    90deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(30, 41, 59, 0.85),
+    rgba(15, 23, 42, 0.95)
+  );
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
 }
 
-/* Logo */
+/* LOGO */
 .logo h2 {
   margin: 0;
-  color: rgb(20, 20, 20);
-  font-size: 28px;
+  font-size: 26px;
+  font-weight: bold;
 
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 2px; /* ❤️ bilkul paas */
+  gap: 6px;
+
+  /* 🔥 GRADIENT TEXT */
+  background: linear-gradient(90deg, #38bdf8, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Heart */
+/* HEART */
 .heart {
-  color: red;
-  font-size: 24px;
-  line-height: 1;
+  color: #f43f5e;
+  font-size: 20px;
 }
 
-/* Navigation */
+/* NAV LINKS */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 20px;
+  align-items: center;
 }
 
-/* Links */
+/* LINKS */
 .nav-links a {
-  color: white;
+  color: #cbd5e1;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
 
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 8px 12px;
+  border-radius: 10px;
 
   transition: all 0.3s ease;
+  position: relative;
 }
 
-/* Hover */
+/* HOVER */
 .nav-links a:hover {
-  background: white;
-  color: cadetblue;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
 }
 
-/* Active Link */
+/* ACTIVE */
 .nav-links a.active {
-  background: #2cac13;
-  color: white;
+  color: #a78bfa;
+  background: rgba(168, 139, 250, 0.12);
 }
 
-/* Click Effect */
+/* UNDERLINE ANIMATION */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 0%;
+  height: 2px;
+
+  background: linear-gradient(90deg, #38bdf8, #a78bfa);
+
+  transition: 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+  width: 70%;
+}
+
+/* CLICK */
 .nav-links a:active {
   transform: scale(0.95);
 }
 
-/* Hamburger */
+/* HAMBURGER */
 .menu-icon {
   display: none;
-  font-size: 30px;
+  font-size: 28px;
   color: white;
   cursor: pointer;
 }
 
-/* Mobile */
+/* =========================
+   📱 MOBILE RESPONSIVE
+========================= */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
@@ -89,17 +135,20 @@
 
     position: absolute;
     top: 65px;
-    right: 10px;
+    right: 15px;
 
-    width: 200px;
+    width: 220px;
 
-    background: cadetblue;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 12px;
+
     padding: 15px;
+    gap: 12px;
 
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.2);
-
-    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
   .nav-links.active {
@@ -107,9 +156,9 @@
   }
 
   .nav-links a {
-    display: block;
     text-align: center;
-    font-size: 16px;
+    font-size: 15px;
+    width: 100%;
   }
 
   .logo h2 {

@@ -8,14 +8,14 @@ function About() {
     <>
       <Header />
 
-      <main className="about">
+      <main className="about" >
 
         {/* HERO SECTION */}
         <section className="about-hero">
 
           <div className="hero-left">
             <p className="hello">Hi, I'm</p>
-            <h1>Divyansh Singh</h1>
+            <h1>Divyansh</h1>
             <h3>Full Stack Developer</h3>
           </div>
 
